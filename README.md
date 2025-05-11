@@ -46,7 +46,7 @@
    cd Personal-Profile
    ```
 
-2. 使用浏览器直接打开`wcowin.html`文件
+2. 使用浏览器直接打开`index.html`文件
 
 
 ### 自定义修改
