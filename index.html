@@ -35,7 +35,7 @@
                 --primary-color: #3b82f6;   /* 暗模式主色（更亮的蓝色） */
                 --primary-light: #60a5fa;   /* 暗模式亮蓝色 */
                 --primary-dark: #2563eb;    /* 暗模式暗蓝色 */
-                --secondary-color: #172554; /* 暗模式辅助色（深蓝） */
+                --secondary-color: #F2F9FE; /* 暗模式辅助色（深蓝） */
                 --text-primary: #f3f4f6;    /* 暗模式主文本色 */
                 --text-secondary: #d1d5db;  /* 暗模式次文本色 */
             }
@@ -358,6 +358,94 @@
         .project-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 24px rgba(37, 99, 235, 0.1);
+        }
+
+        /* Bento风格项目卡片优化 - 修改动效 */
+        .bento-project-card {
+            background: #fff;
+            border-radius: var(--border-radius);
+            padding: 2.2rem;
+            box-shadow: 0 4px 16px rgba(14, 30, 37, 0.06);
+            border: 1px solid rgba(229, 231, 235, 0.6);
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+            min-height: 220px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bento-project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 32px rgba(37, 99, 235, 0.12);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+
+        /* .bento-project-card::after {
+            display: none;
+        } */
+
+        .bento-project-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--secondary-color);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            
+        }
+        .bento-project-icon i {
+            color: var(--primary-color);
+            /* font-size: 1.5rem; */
+        }
+
+        .bento-project-card:hover .bento-project-icon {
+            transform: none;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08);
+        }
+
+        .bento-project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.2rem;
+            transition: none;
+        }
+
+        .bento-project-card:hover .bento-project-tags {
+            transform: none;
+        }
+
+        .bento-project-tag {
+            background: var(--secondary-color);
+            color: var(--primary-dark);
+            font-size: 0.85rem;
+            border-radius: 0.7rem;
+            padding: 0.18rem 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            transition: none;
+        }
+
+        /* .bento-project-card:hover .bento-project-tag {
+            background: var(--secondary-color);
+            color: var(--primary-dark);
+        } */
+
+        .bento-project-title {
+            font-size: 1.18rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.15rem;
+            line-height: 1.3;
+            transition: none;
+        }
+
+        .bento-project-card:hover .bento-project-title {
+            color: var(--primary-color);
         }
 
         /* 联系方式卡片样式 */
@@ -878,30 +966,61 @@
         <section id="projects" class="section">
             <div class="max-w-7xl mx-auto">
                 <h2 class="section-title">代表项目</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="project-card">
-                            <h3 class="text-xl font-semibold text-primary-color mb-2">
-                              <a href="https://github.com/Wcowin/Mkdocs-Wcowin" target="_blank" rel="noopener" class="hover:underline">
-                                Wcowin for MkDocs Theme
-                              </a>
-                            </h3>                            
-                            <p class="text-secondary-color mb-3">开源博客项目（GitHub Star🌟45+），实现博客文档快速构建，提供详细教程文档与用例。</p>
-                            <div class="text-sm text-gray-500">技术栈：HTML+JS+CSS+Python + VScode工具 | 角色：核心开发者</div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bento-project-card">
+                        <div class="bento-project-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <div class="bento-project-title">
+                            
+                            <a href="https://github.com/Wcowin/Mkdocs-Wcowin" target="_blank" rel="noopener" class="bento-project-link">Wcowin for MkDocs Theme</a>
+                        </div>
+                        <div class="bento-project-desc">
+                            开源博客项目（GitHub Star🌟45+），实现博客文档快速构建，提供详细教程文档与用例。
+                        </div>
+                        <div class="bento-project-tags">
+                            <span class="bento-project-tag">HTML</span>
+                            <span class="bento-project-tag">JS</span>
+                            <span class="bento-project-tag">CSS</span>
+                            <span class="bento-project-tag">Python</span>
+                            <span class="bento-project-tag">VScode</span>
                         </div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="project-card">
-                            <h3 class="text-xl font-semibold text-primary-color mb-2">
-                              <a href="https://github.com/Wcowin/License-plate-recognition" target="_blank" rel="noopener" class="hover:underline">
-                                智能车牌识别系统
-                              </a>
-                            </h3>
-                            <p class="text-secondary-color mb-3">团队开发项目，基于基于百度API和Tkinter库</p>
-                            <div class="text-sm text-gray-500">技术栈：Python + openCV | 角色：架构设计与核心开发</div>
+                    <div class="bento-project-card">
+                        <div class="bento-project-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="bento-project-title">
+                            
+                            <a href="https://github.com/Wcowin/License-plate-recognition" target="_blank" rel="noopener" class="bento-project-link">智能车牌识别系统</a>
+                        </div>
+                        <div class="bento-project-desc">
+                            团队开发项目，基于百度API和Tkinter库，支持车牌自动识别。
+                        </div>
+                        <div class="bento-project-tags">
+                            <span class="bento-project-tag">Python</span>
+                            <span class="bento-project-tag">OpenCV</span>
+                            <span class="bento-project-tag">Tkinter</span>
+                            <span class="bento-project-tag">API</span>
                         </div>
                     </div>
-
+                    <div class="bento-project-card">
+                        <div class="bento-project-icon">
+                            <i class="fas fa-blog"></i>
+                        </div>
+                        <div class="bento-project-title">
+                            
+                            <a href="https://wcowin.work/" target="_blank" rel="noopener" class="bento-project-link">个人博客</a>
+                        </div>
+                        <div class="bento-project-desc">
+                            个人开发项目，基于 Mkdocs，专注技术与生活分享，累计阅读量5万+。
+                        </div>
+                        <div class="bento-project-tags">
+                            <span class="bento-project-tag">Python</span>
+                            <span class="bento-project-tag">Mkdocs</span>
+                            <span class="bento-project-tag">独立博客</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
